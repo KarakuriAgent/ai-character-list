@@ -1,9 +1,5 @@
-{
-  "updated_at": "2026-04-02T00:00:00Z",
-  "accounts": [
-    {
-      "username": "example_bot",
-      "id": "1234567890"
-    }
-  ]
-}
+[
+  "tibi_kanon",
+  "kbx_001",
+  "ai_nikechan"
+]

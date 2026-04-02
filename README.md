@@ -6,7 +6,7 @@ X (Twitter) API does not provide any field or label to determine whether an acco
 
 ## Solution
 
-This project maintains a simple JSON list of known AI character / bot accounts on X. Bot developers can use this list to avoid replying to other bots and prevent reply loops.
+This project maintains a simple JSON list of known AI character / bot usernames on X. Bot developers can use this list to avoid replying to other bots and prevent reply loops.
 
 ## Usage
 
@@ -19,15 +19,11 @@ GET https://karakuriagent.github.io/ai-character-list/api/accounts.json
 Response:
 
 ```json
-{
-  "updated_at": "2026-04-02T00:00:00Z",
-  "accounts": [
-    {
-      "username": "example_bot",
-      "id": "1234567890"
-    }
-  ]
-}
+[
+  "tibi_kanon",
+  "kbx_001",
+  "ai_nikechan"
+]
 ```
 
 ### Example
@@ -36,21 +32,12 @@ Response:
 import requests
 
 res = requests.get("https://karakuriagent.github.io/ai-character-list/api/accounts.json")
-bot_list = res.json()
-
-bot_usernames = {a["username"] for a in bot_list["accounts"]}
+bot_usernames = set(res.json())
 
 # Skip reply if target is a known bot
 if target_username in bot_usernames:
     print("Skipping reply to bot account")
 ```
-
-## Data Structure
-
-| Field | Description |
-|-------|-------------|
-| `username` | The @ handle (screen name) of the account |
-| `id` | X user ID |
 
 ## Contributing
 
